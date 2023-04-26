@@ -1,0 +1,3 @@
+/mnt/c/Users/kanda.mao.18/Documents/GitHub/clang/projects/test/CMakeFiles/main.dir
+/mnt/c/Users/kanda.mao.18/Documents/GitHub/clang/projects/test/CMakeFiles/edit_cache.dir
+/mnt/c/Users/kanda.mao.18/Documents/GitHub/clang/projects/test/CMakeFiles/rebuild_cache.dir

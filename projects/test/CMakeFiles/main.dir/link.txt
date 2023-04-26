@@ -1,0 +1,1 @@
+/usr/bin/cc -rdynamic CMakeFiles/main.dir/src/main.c.o -o main   -L/mnt/c/Users/kanda.mao.18/Documents/GitHub/clang/projects/test/./lib  -Wl,-rpath,/mnt/c/Users/kanda.mao.18/Documents/GitHub/clang/projects/test/./lib -lconsole 

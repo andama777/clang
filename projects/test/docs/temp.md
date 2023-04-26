@@ -1,0 +1,3 @@
+The warning "return with a value, in function returning void" means that your main function is declared as void but you are trying to return a value from it. You can fix this by removing the return statement or changing the function declaration to int instead of void.
+
+The error "undefined reference" means that the linker is unable to find the definition of the functions clear_screen, put_string and show_screen. This usually happens when you forget to include the source file containing the implementation of these functions in your build process. Make sure that you have included all the necessary source files and that they are being compiled and linked correctly.
