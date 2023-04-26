@@ -1,3 +1,4 @@
 {
-    "cmake.sourceDirectory": "C:/Users/kanda.mao.18/Documents/GitHub/clang/projects/test"
+    "cmake.sourceDirectory": "C:/Users/kanda.mao.18/Documents/GitHub/clang/projects/test",
+    "C_Cpp.errorSquiggles": "disabled"
 }

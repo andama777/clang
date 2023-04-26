@@ -7,7 +7,7 @@
 //     char screen[SIZE];
 // } console;
 
-#include "console.h"
+#include "Console.h"
 
 // 画面のバッファをクリアする
 void clear_screen(console *con)

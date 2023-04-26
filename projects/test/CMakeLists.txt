@@ -8,7 +8,7 @@ project(game)
 
 # set(CMAKE_C_FLAGS "-Wall -O1")
 
-add_library(console STATIC lib/console.c)
+add_library(console STATIC lib/Console.c)
 
 link_directories(${CMAKE_SOURCE_DIR}/lib)
 

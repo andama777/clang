@@ -1,3 +1,5 @@
-The warning "return with a value, in function returning void" means that your main function is declared as void but you are trying to return a value from it. You can fix this by removing the return statement or changing the function declaration to int instead of void.
-
-The error "undefined reference" means that the linker is unable to find the definition of the functions clear_screen, put_string and show_screen. This usually happens when you forget to include the source file containing the implementation of these functions in your build process. Make sure that you have included all the necessary source files and that they are being compiled and linked correctly.
+/usr/bin/ld: libconsole.a(console.c.o):(.bss+0x0): multiple definition of `screen'; CMakeFiles/game.dir/src/main.c.o:(.bss+0x0): first defined here
+collect2: error: ld returned 1 exit status
+make[2]: *** [CMakeFiles/game.dir/build.make:98: game] Error 1
+make[1]: *** [CMakeFiles/Makefile2:111: CMakeFiles/game.dir/all] Error 2
+make: *** [Makefile:91: all] Error 2
