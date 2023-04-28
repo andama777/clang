@@ -4,25 +4,23 @@
 #include <unistd.h>
 #include <stdbool.h>
 
+#include "../lib/Clock.h"
 #include "../lib/Window.h"
 
 void main()
 {
-    long i = 0;
     bool is_running = true;
-    float game_time = 0;
 
-    Window window;
-    window = create_window();
+    Clock clock = create_clock();
+    Window window = create_window();
 
-while(is_running){
-        game_time += 0.01;
-
+    while(is_running){
         clear_screen(&window);
 
-        char str[10];
-        sprintf(str, "GameTime : %f", game_time);
-        print_string(&window, str);
+        char str[1000];
+        sprintf(str, "GameTime : %f", get_game_time(&clock));
+
+        set_screen(&window, str);
 
         show_screen(&window);
 

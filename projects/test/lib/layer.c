@@ -7,13 +7,31 @@ Layer create_layer(
     int start_y,
     int width,
     int height,
-    int priority
+    int priority,
+    int windowWidth,
+    int windowHeight
     ) {
     Layer layer;
+
+    // レイヤーのサイズチェック
+    if (start_x < 0 || windowWidth - 1 < start_x
+        || start_y < 0 || windowHeight - 1 < start_y) {
+        printf("error: invalid layer size\n");
+        exit(1);
+    }
     layer.start_x = start_x;
     layer.start_y = start_y;
+
+    printf("width: %d, height: %d\n", width, height);
+    printf("windowWidth: %d, windowHeight: %d\n", windowWidth, windowHeight);
+    if (width < 0 || windowWidth - 1 < start_x + width
+        || height < 0 || windowHeight - 1 < start_y + height) {
+        printf("error: invalid layer size\n");
+        exit(1);
+    }
     layer.width = width;
     layer.height = height;
+
     layer.priority = priority;
 
     return layer;

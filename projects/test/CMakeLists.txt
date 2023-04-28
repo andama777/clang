@@ -12,10 +12,12 @@ add_library(window STATIC lib/Window.c)
 
 add_library(layer STATIC lib/Layer.c)
 
+add_library(clock STATIC lib/Clock.c)
+
 link_directories(${CMAKE_SOURCE_DIR}/lib)
 
 # include_directories(${CMAKE_SOURCE_DIR}/include)
 
 add_executable(game src/main.c)
 
-target_link_libraries(game window layer)
+target_link_libraries(game window layer clock)

@@ -14,7 +14,7 @@ typedef struct {
     Layer* layers;
     int width;
     int height;
-    char* screen;
+    char** screen;
 } Window;
 
 Window create_window();
