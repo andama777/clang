@@ -1,0 +1,1 @@
+/usr/bin/cc -rdynamic CMakeFiles/pattern.dir/src/main.c.o -o pattern   -L/mnt/c/Users/kanda.mao.18/Documents/GitHub/clang/projects/3/lib  -Wl,-rpath,/mnt/c/Users/kanda.mao.18/Documents/GitHub/clang/projects/3/lib libprocess.a 
