@@ -1,4 +1,7 @@
 {
     "cmake.sourceDirectory": "C:/Users/kanda.mao.18/Documents/GitHub/clang/projects/test",
-    "C_Cpp.errorSquiggles": "disabled"
+    "C_Cpp.errorSquiggles": "disabled",
+    "files.associations": {
+        "layer.h": "c"
+    }
 }

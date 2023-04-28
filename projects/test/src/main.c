@@ -1,12 +1,10 @@
-// libフォルダのconsole.hを使う
-
-// #include <stdio.h>
-// #include <stdlib.h>
-// #include <string.h>
-// #include <unistd.h>
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+#include <unistd.h>
 #include <stdbool.h>
 
-#include "../lib/console.h"
+#include "../lib/Window.h"
 
 void main()
 {
@@ -14,37 +12,20 @@ void main()
     bool is_running = true;
     float game_time = 0;
 
-    console con;
+    Window window;
+    window = create_window();
 
-    while(is_running){
-        game_time += 0.001;
+while(is_running){
+        game_time += 0.01;
 
-        clear_screen(&con);
+        clear_screen(&window);
 
         char str[10];
         sprintf(str, "GameTime : %f", game_time);
-        put_string(&con, 0, 0, str);
-        //put_string(&con, 0, 0, "Hello, world!");
+        print_string(&window, str);
 
-        show_screen(&con);
-        usleep(1 * 1000);
+        show_screen(&window);
+
+        usleep(10 * 1000);
     }
-
-    // while(1){
-
-    //     clear_screen(&con);
-
-    //     put_string(&con, 0, 0, "Hello, world!");
-    //     put_string(&con, 0, 1, "こんにちは世界！");
-    //     put_string(&con, 0, 2, "你好，世界！");
-
-    //     // i = i+1して表示
-    //     char str[10];
-    //     sprintf(str, "%d", i++);
-    //     put_string(&con, 0, 3, str);
-    //     show_screen(&con);
-
-    //     usleep(1 * 1000 * 1000);
-    // }
-
 }
