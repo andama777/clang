@@ -3,6 +3,7 @@
 #include <stdlib.h>
 #include <string.h>
 #include <unistd.h>
+#include <stdbool.h>
 
 #include "Layer.h"
 
@@ -10,8 +11,11 @@
 #define HEIGHT 20
 #define SIZE (WIDTH * HEIGHT)
 
+// #define LAYER_NUM 10
+
 typedef struct {
     Layer* layers;
+    int layer_num;
     int width;
     int height;
     char** screen;
@@ -19,7 +23,7 @@ typedef struct {
 
 Window create_window();
 
-void set_layer(Window *window);
+void set_screen(Window *window, char *s);
 
 void clear_screen(Window *window);
 

@@ -9,7 +9,8 @@ Layer create_layer(
     int height,
     int priority,
     int windowWidth,
-    int windowHeight
+    int windowHeight,
+    bool is_framed
     ) {
     Layer layer;
 
@@ -22,10 +23,10 @@ Layer create_layer(
     layer.start_x = start_x;
     layer.start_y = start_y;
 
-    printf("width: %d, height: %d\n", width, height);
-    printf("windowWidth: %d, windowHeight: %d\n", windowWidth, windowHeight);
-    if (width < 0 || windowWidth - 1 < start_x + width
-        || height < 0 || windowHeight - 1 < start_y + height) {
+    // printf("width: %d, height: %d\n", width, height);
+    // printf("windowWidth: %d, windowHeight: %d\n", windowWidth, windowHeight);
+    if (width < 0 || windowWidth  < start_x + width
+        || height < 0 || windowHeight < start_y + height) {
         printf("error: invalid layer size\n");
         exit(1);
     }
