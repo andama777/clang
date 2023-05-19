@@ -11,9 +11,8 @@ set(CMAKE_DEPENDS_DEPENDENCY_FILES
   "/mnt/c/Users/kanda.mao.18/Documents/GitHub/clang/projects/pattern/src/main.c" "CMakeFiles/pattern.dir/src/main.c.o" "gcc" "CMakeFiles/pattern.dir/src/main.c.o.d"
   )
 
-# Targets to which this target links.
-set(CMAKE_TARGET_LINKED_INFO_FILES
-  "/mnt/c/Users/kanda.mao.18/Documents/GitHub/clang/projects/pattern/build/CMakeFiles/process.dir/DependInfo.cmake"
+# Targets to which this target links which contain Fortran sources.
+set(CMAKE_Fortran_TARGET_LINKED_INFO_FILES
   )
 
 # Fortran module output directory.

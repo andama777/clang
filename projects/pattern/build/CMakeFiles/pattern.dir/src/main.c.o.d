@@ -51,4 +51,4 @@ CMakeFiles/pattern.dir/src/main.c.o: \
  /usr/include/x86_64-linux-gnu/bits/types/locale_t.h \
  /usr/include/x86_64-linux-gnu/bits/types/__locale_t.h \
  /usr/include/strings.h \
- /mnt/c/Users/kanda.mao.18/Documents/GitHub/clang/projects/pattern/src/../lib/Process.h
+ /mnt/c/Users/kanda.mao.18/Documents/GitHub/clang/projects/pattern/lib/Process.h

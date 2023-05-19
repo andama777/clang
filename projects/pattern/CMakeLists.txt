@@ -4,6 +4,8 @@ project(pattern)
 
 add_library(process STATIC lib/Process.c)
 
+include_directories(${CMAKE_SOURCE_DIR}/lib)
+
 link_directories(${CMAKE_SOURCE_DIR}/lib)
 
 add_executable(pattern src/main.c)

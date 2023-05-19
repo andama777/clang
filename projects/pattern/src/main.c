@@ -2,10 +2,10 @@
 #include <stdlib.h>
 #include <string.h>
 
-#include "../lib/Process.h"
+#include "Process.h"
 
-#define INPATH "../../data/pics/image1.pgm"
-#define OUTPATH "../../output/pics/image1.pgm"
+#define INPATH "../../data/pics/image2.pgm"
+#define OUTPATH "../../output/pics/image2.pgm"
 
 FILE* init_FILE(char *path, char *mode){
     FILE *fp;
@@ -34,7 +34,8 @@ void main(){
 
     // f = process_contrast(f); // コントラスト処理
     // f = moving_average(f); // 移動平均法
-    f = median_filter(f, 8); // ミディアンフィルタ
+    // f = median_filter(f, 8); // ミディアンフィルタ
+    f = scale(f, 2.0, 6.0); // 拡大縮小
 
     FILE *outfp = init_FILE(OUTPATH, "w");
 

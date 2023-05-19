@@ -11,3 +11,4 @@ frame init_frame(char magic[3], int width, int height, int max);
 frame process_contrast(frame f);
 frame moving_average(frame f);
 frame median_filter(frame f, int bsize);
+frame scale(frame f, float width_scale, float height_scale);
