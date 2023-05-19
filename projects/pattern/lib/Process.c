@@ -24,8 +24,10 @@ frame scale(frame f, float width_scale, float height_scale){
             if(0 <= x0 && x0 < f.width - 1 && 0 <= y0 && y0 < f.height - 1){
                 u = (int)x0;
                 v = (int)y0;
-                a = 1 / (x0 - u);
-                b = 1 / (y0 - v);
+                // a = 1 / (x0 - u);
+                // b = 1 / (y0 - v);
+                a = x0 - u;
+                b = y0 - v;
                 imageout.image[y][x] = (int)(
                     (1 - a) * (1 - b) * f.image[v][u] +
                     a * (1 - b) * f.image[v][u+1] +
