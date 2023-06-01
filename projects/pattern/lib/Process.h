@@ -21,7 +21,7 @@ frame contrast(frame f);
 frame moving_average(frame f);
 frame median_filter(frame f, int bsize);
 frame scale(frame f, float width_scale, float height_scale);
-frame affine(frame f, int a, int b, int c, int d, int e, int f2);
+frame affine(frame f, double a, double b, double c, double d, double e, double f2);
 
 typedef struct {
     char name[20];

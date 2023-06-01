@@ -41,7 +41,7 @@ frame process(frame f){
 
 }
 
-frame affine(frame f, int a, int b, int c, int d, int e, int f2){
+frame affine(frame f, double a, double b, double c, double d, double e, double f2){
     frame imageout = init_frame(f.magic, f.width, f.height, f.max);
     float x0, y0, alpha, beta, t;
     int u,v;

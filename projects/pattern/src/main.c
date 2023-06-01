@@ -32,7 +32,7 @@ int main(void){
         // f = rotate(f, 50, 50, 45); // 任意の点を中心に回転
 
         int a,b,c,d,e,f2;
-        int affine_testdata[6] = {1, 0, 100, 0, 1, 100}; // 拡大縮小１
+        int affine_testdata[6] = {1.0, 0.0, 100.0, 0.0, 1.0, 100.0}; // 拡大縮小１
 
         a = affine_testdata[0];
         b = affine_testdata[1];
