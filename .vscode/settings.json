@@ -4,6 +4,7 @@
     "files.associations": {
         "layer.h": "c",
         "process.h": "c",
-        "stdbool.h": "c"
+        "stdbool.h": "c",
+        "interface.h": "c"
     }
 }

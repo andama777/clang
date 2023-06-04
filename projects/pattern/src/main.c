@@ -19,33 +19,27 @@ int main(void){
     int frame_count = 0; // 画像の数
     while(file_list[frame_count]) frame_count++; // 画像の数を数える
 
+    void* args = console(); // 適用する処理を選択
+
     // 各画像を処理
     for (int i = 0; i < frame_count; i++){
 
         frame f = set_frame(file_list[i]);
+        // int a,b,c,d,e,f2;
+        // int affine_testdata[6] = {1.0, 0.0, 100.0, 0.0, 1.0, 100.0}; // 拡大縮小１
 
-        // f = process_contrast(f); // コントラスト処理
-        // f = moving_average(f); // 移動平均法
-        // f = median_filter(f, 8); // ミディアンフィルタ
-        // f = scale(f, 2.0, 6.0); // 拡大縮小
+        // a = affine_testdata[0];
+        // b = affine_testdata[1];
+        // c = affine_testdata[2];
+        // d = affine_testdata[3];
+        // e = affine_testdata[4];
+        // f2 = affine_testdata[5];
 
-        // f = rotate(f, 50, 50, 45); // 任意の点を中心に回転
-
-        int a,b,c,d,e,f2;
-        int affine_testdata[6] = {1.0, 0.0, 100.0, 0.0, 1.0, 100.0}; // 拡大縮小１
-
-        a = affine_testdata[0];
-        b = affine_testdata[1];
-        c = affine_testdata[2];
-        d = affine_testdata[3];
-        e = affine_testdata[4];
-        f2 = affine_testdata[5];
-
-        f = affine(f, a, b, c, d, e, f2); // アフィン変換 a,b,c,d,e,f
+        // f = affine(f, a, b, c, d, e, f2); // アフィン変換 a,b,c,d,e,f
 
         // void* args = console(); // 適用する操作と引数をコンソールで入力させる
 
-        // f = process(f);
+        f = process(f, args);
 
         output_frame(file_list[i], f);
     }

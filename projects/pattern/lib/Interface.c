@@ -1,12 +1,14 @@
 #include "Interface.h"
 
-function_info func_list[6] = {
+function_info func_list[func_count] = {
 {"contrast", 0},
 {"moving_average", 0},
 {"median_filter", 1},
 {"scale", 2},
 {"rotate", 3},
-{"affine", 6}
+{"affine", 6},
+{"binarization", 1},
+{"discriminant_analysis", 0}
 };
 
 // console関数を回すことで、画像に対してどの操作を適用するか選択させる
@@ -44,6 +46,12 @@ void* console(){
         printf("回転角を入力してください\n");
         scanf("%d", &((int *)args)[4]);
         printf("axis = (%d, %d), angle = %d\n", ((int *)args)[2], ((int *)args)[3], ((int *)args)[4]);
+    } else if(strcmp(func_name, "binarization") == 0){
+        printf("閾値を入力してください\n");
+        scanf("%d", &((int *)args)[2]);
+        printf("threshold = %d\n", ((int *)args)[2]);
+    } else if(strcmp(func_name, "discriminant_analysis") == 0){
+        return args;
     } else if(strcmp(func_name, "affine") == 0){
         for (int i = 0; i < 6; i++){
             printf("%cを入力してください\n", affine_args[i]);

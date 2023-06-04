@@ -14,13 +14,8 @@ frame init_frame(char magic[3], int width, int height, int max){
     return f;
 }
 
-frame process(frame f){
-    // コンソールから操作を選択
-    void* args = console();
-    // printf("args = %p\n", args);
-    // printf("args[0] = %d\n", ((int *)args)[0]);
+frame process(frame f, void* args){
     int func_id = ((int *)args)[0];
-    printf("func_id = %d\n", func_id);
     switch (func_id){
         case 0:
             return contrast(f);
@@ -34,11 +29,65 @@ frame process(frame f){
             return rotate(f, ((int *)args)[2], ((int *)args)[3], ((int *)args)[4]);
         case 5:
             return affine(f, ((int *)args)[2], ((int *)args)[3], ((int *)args)[4], ((int *)args)[5], ((int *)args)[6], ((int *)args)[7]);
+        case 6:
+            return binarization(f, ((int *)args)[2]);
+        case 7:
+            return discriminant_analysis(f);
         default:
             printf("Error: func_id is invalid.\n");
             exit(1);
     }
 
+}
+
+// 画像を綺麗に二値化するような閾値を求める
+frame discriminant_analysis(frame f){
+    int threshold = 0; // 閾値
+    float var = 0; // 分散
+    int pix_num = f.width * f.height;
+
+    for (int k = 0; k < f.max - 1; k++){
+        float c1 = 0, c2 = 0; // クラス1, 2の画素数
+        for (int y = 0; y < f.height; y++){
+            for (int x = 0; x < f.width; x++){
+                int pix_val = f.image[y][x]; // 画素値
+                if (f.image[y][x] < k){
+                    // m1 += f.image[y][x];
+                    c1++;
+                } else {
+                    // m2 += f.image[y][x];
+                    c2++;
+                }
+            }
+        }
+        if (n1 == 0 || n2 == 0) continue;
+        float c1_ave = m1 / n1;
+        float c2_ave = m2 / n2;
+        float tmp = n1 * n2 * (c1_ave - c2_ave) * (c1_ave - c2_ave);
+        if (tmp > var){
+            threshold = k;
+        }
+    }
+
+    printf("threshold = %d\n", threshold);
+
+    return binarization(f, threshold);
+}
+
+frame binarization(frame f, int threshold){
+    int max = 255;
+    // frame imageout = init_frame(f.magic, f.width, f.height, f.max);
+    for (int y = 0; y < f.height; y++){
+        for (int x = 0; x < f.width; x++){
+            if (f.image[y][x] > threshold){
+                f.image[y][x] = max;
+            } else {
+                f.image[y][x] = 0;
+            }
+        }
+    }
+
+    return f;
 }
 
 frame affine(frame f, double a, double b, double c, double d, double e, double f2){

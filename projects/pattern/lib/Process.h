@@ -6,7 +6,7 @@
 
 #include "Interface.h"
 
-#define func_count 6
+#define func_count 8
 typedef struct {
     char magic[3];
     int width, height, max;
@@ -15,7 +15,9 @@ typedef struct {
 } frame;
 
 frame init_frame(char magic[3], int width, int height, int max);
-frame process(frame f);
+frame process(frame f, void* args);
+frame discriminant_analysis(frame f);
+frame binarization(frame f, int threshold);
 frame rotate(frame f, int axis_x, int axis_y, int rad);
 frame contrast(frame f);
 frame moving_average(frame f);
@@ -27,3 +29,4 @@ typedef struct {
     char name[20];
     int args_num;
 } function_info;
+
