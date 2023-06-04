@@ -26,7 +26,7 @@ frame scale(frame f, float width_scale, float height_scale);
 frame affine(frame f, double a, double b, double c, double d, double e, double f2);
 
 typedef struct {
-    char name[20];
+    char name[30];
     int args_num;
 } function_info;
 

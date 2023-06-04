@@ -37,46 +37,100 @@ frame process(frame f, void* args){
             printf("Error: func_id is invalid.\n");
             exit(1);
     }
-
 }
 
 // 画像を綺麗に二値化するような閾値を求める
-frame discriminant_analysis(frame f){
-    int threshold = 0; // 閾値
-    float var = 0; // 分散
-    int pix_num = f.width * f.height;
+// frame discriminant_analysis(frame f){
+//     int k = 0; // 濃度
+//     int pix_num = f.width * f.height; // 総画素数
+//     // 初期化
+//     int*n = calloc(f.max, sizeof(int) * f.max); // 濃度がiの画素数
+//     float*p = calloc(f.max, sizeof(float) * f.max); // 濃度が0~kの生起確率
+//     float*m = calloc(f.max, sizeof(float) * f.max); // 0~kまでの平均濃度
+//     // float*v = (float *)malloc(sizeof(float) * f.max); // 閾値kの時のクラス間分散
 
-    for (int k = 0; k < f.max - 1; k++){
-        float c1 = 0, c2 = 0; // クラス1, 2の画素数
-        for (int y = 0; y < f.height; y++){
-            for (int x = 0; x < f.width; x++){
-                int pix_val = f.image[y][x]; // 画素値
-                if (f.image[y][x] < k){
-                    // m1 += f.image[y][x];
-                    c1++;
-                } else {
-                    // m2 += f.image[y][x];
-                    c2++;
-                }
-            }
+//     // 濃度ごとの画素数を求める
+//     for (int i = 0; i < f.height; i++){ 
+//         for (int j = 0; j < f.width; j++){
+//             n[f.image[i][j]]++;
+//         }
+//     }
+
+//     // 濃度が0~kの生起確率を求める
+//     p[0] = (float)n[0] / (f.width * f.height);
+//     for (k = 1; k <= f.max; k++){
+//         p[k] = p[k-1] + (float)n[k] / pix_num;
+//     }
+
+//     // 濃度0~kまでの平均濃度を求める
+//     m[0] = 0;
+//     for (k = 1; k <= f.max; k++){
+//         m[k] = m[k-1] + (float)k * n[k] / pix_num;
+//         // printf("k = %d, m = %f\n", k, m[k]);
+//     }
+
+//     // 閾値kの時のクラス間分散を求め、最大の閾値を求める
+//     int threshold = 0; // 閾値
+//     double tmp_var, var = 0; // クラス間分散
+//     float mT = m[f.max]; // 画像全体の平均濃度
+//     for (k = 0; k <= f.max; k++){
+//         var = pow(mT * p[k] - m[k], 2) / (p[k] * (1 - p[k]));
+//         // printf("k = %d, var = %f\n", k, var);
+//         if (var > tmp_var){
+//             tmp_var = var;
+//             threshold = k;
+//         }
+//     }
+
+//     printf("閾値: %d\n", threshold);
+
+//     return binarization(f, threshold);
+// }
+
+// 画像を綺麗に二値化するような閾値を求める
+frame discriminant_analysis(frame f){
+    int k = 0; // 濃度
+    int pix_num = f.width * f.height; // 総画素数
+    int threshold = 0; // 閾値
+    int*n = calloc(f.max, sizeof(int) * f.max); // 濃度がiの画素数
+    float*p = calloc(f.max, sizeof(float) * f.max); // 濃度が0~kの生起確率
+    float*m = calloc(f.max, sizeof(float) * f.max); // 0~kまでの平均濃度
+
+    // 濃度ごとの画素数を求める
+    for (int i = 0; i < f.height; i++){ 
+        for (int j = 0; j < f.width; j++){
+            n[f.image[i][j]]++;
         }
-        if (n1 == 0 || n2 == 0) continue;
-        float c1_ave = m1 / n1;
-        float c2_ave = m2 / n2;
-        float tmp = n1 * n2 * (c1_ave - c2_ave) * (c1_ave - c2_ave);
-        if (tmp > var){
+    }
+
+    // 濃度0~kまでの生起確率と、濃度0~kまでの平均濃度を求める
+    m[0] = 0; // 濃度0の平均濃度は0
+    p[0] = (float)n[0] / pix_num; // 濃度0の生起確率
+    for (k = 1; k <= f.max; k++){
+        p[k] = p[k-1] + (float)n[k] / pix_num; // 濃度0~kまでの生起確率を求める
+        m[k] = m[k-1] + (float)k * n[k] / pix_num; // 濃度0~kまでの平均濃度を求める
+        // printf("k = %d, m = %f\n", k, m[k]);
+    }
+
+    // 閾値kの時のクラス間分散を求め、最大の閾値を求める
+    float tmp_var=0, var=0;
+    for (k = 0; k <= f.max; k++){
+        var = pow(m[f.max] * p[k] - m[k], 2) / (p[k] * (1 - p[k])); // クラス間分散を求める
+        if (var > tmp_var){
+            tmp_var = var;
             threshold = k;
         }
     }
 
-    printf("threshold = %d\n", threshold);
+    printf("閾値: %d\n", threshold);
+
+    free(n); free(p); free(m); // メモリ解放
 
     return binarization(f, threshold);
 }
 
 frame binarization(frame f, int threshold){
     int max = 255;
-    // frame imageout = init_frame(f.magic, f.width, f.height, f.max);
     for (int y = 0; y < f.height; y++){
         for (int x = 0; x < f.width; x++){
             if (f.image[y][x] > threshold){

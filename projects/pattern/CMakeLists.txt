@@ -7,9 +7,9 @@ project(pattern)
 add_library(process STATIC lib/Process.c)
 add_library(interface STATIC lib/Interface.c)
 
-include_directories(${CMAKE_SOURCE_DIR}/lib)
+include_directories(./lib)
 
-# link_directories(${CMAKE_SOURCE_DIR}/lib)
+link_directories($./lib)
 
 add_executable(pattern src/main.c)
 

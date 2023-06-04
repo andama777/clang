@@ -8,13 +8,13 @@ set(CMAKE_DEPENDS_LANGUAGES
 
 # The set of dependency files which are needed:
 set(CMAKE_DEPENDS_DEPENDENCY_FILES
-  "/mnt/c/Users/kanda.mao.18/Documents/GitHub/clang/projects/pattern/src/main.c" "CMakeFiles/pattern.dir/src/main.c.o" "gcc" "CMakeFiles/pattern.dir/src/main.c.o.d"
+  "/mnt/c/Users/mao0202/Documents/GitHub/clang/projects/pattern/src/main.c" "CMakeFiles/pattern.dir/src/main.c.o" "gcc" "CMakeFiles/pattern.dir/src/main.c.o.d"
   )
 
 # Targets to which this target links.
 set(CMAKE_TARGET_LINKED_INFO_FILES
-  "/mnt/c/Users/kanda.mao.18/Documents/GitHub/clang/projects/pattern/build/CMakeFiles/process.dir/DependInfo.cmake"
-  "/mnt/c/Users/kanda.mao.18/Documents/GitHub/clang/projects/pattern/build/CMakeFiles/interface.dir/DependInfo.cmake"
+  "/mnt/c/Users/mao0202/Documents/GitHub/clang/projects/pattern/build/CMakeFiles/process.dir/DependInfo.cmake"
+  "/mnt/c/Users/mao0202/Documents/GitHub/clang/projects/pattern/build/CMakeFiles/interface.dir/DependInfo.cmake"
   )
 
 # Fortran module output directory.

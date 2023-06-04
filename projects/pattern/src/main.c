@@ -22,9 +22,12 @@ int main(void){
     void* args = console(); // 適用する処理を選択
 
     // 各画像を処理
-    for (int i = 0; i < frame_count; i++){
+    for (int i = 0; i < frame_count; i++){ // frame_count
 
         frame f = set_frame(file_list[i]);
+        printf("--------------------------\n");
+        printf("%s\n", file_list[i]);
+
         // int a,b,c,d,e,f2;
         // int affine_testdata[6] = {1.0, 0.0, 100.0, 0.0, 1.0, 100.0}; // 拡大縮小１
 

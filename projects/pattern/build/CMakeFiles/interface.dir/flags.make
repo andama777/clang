@@ -4,7 +4,7 @@
 # compile C with /usr/bin/cc
 C_DEFINES = 
 
-C_INCLUDES = -I/mnt/c/Users/kanda.mao.18/Documents/GitHub/clang/projects/pattern/lib
+C_INCLUDES = -I/mnt/c/Users/mao0202/Documents/GitHub/clang/projects/pattern/./lib
 
 C_FLAGS = 
 
