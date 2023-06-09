@@ -1,7 +1,7 @@
 CMakeFiles/process.dir/lib/Process.c.o: \
- /mnt/c/Users/mao0202/Documents/GitHub/clang/projects/pattern/lib/Process.c \
+ /mnt/c/Users/kanda.mao.18/Documents/GitHub/clang/projects/pattern/lib/Process.c \
  /usr/include/stdc-predef.h \
- /mnt/c/Users/mao0202/Documents/GitHub/clang/projects/pattern/lib/Process.h \
+ /mnt/c/Users/kanda.mao.18/Documents/GitHub/clang/projects/pattern/lib/Process.h \
  /usr/include/stdio.h \
  /usr/include/x86_64-linux-gnu/bits/libc-header-start.h \
  /usr/include/features.h /usr/include/features-time64.h \
@@ -60,5 +60,5 @@ CMakeFiles/process.dir/lib/Process.c.o: \
  /usr/include/x86_64-linux-gnu/bits/fp-fast.h \
  /usr/include/x86_64-linux-gnu/bits/mathcalls-helper-functions.h \
  /usr/include/x86_64-linux-gnu/bits/mathcalls.h \
- /mnt/c/Users/mao0202/Documents/GitHub/clang/projects/pattern/lib/Interface.h \
+ /mnt/c/Users/kanda.mao.18/Documents/GitHub/clang/projects/pattern/lib/Interface.h \
  /usr/lib/gcc/x86_64-linux-gnu/11/include/stdbool.h

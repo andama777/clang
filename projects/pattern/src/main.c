@@ -5,7 +5,7 @@
 #include "Interface.h"
 #include "Process.h"
 
-#define INPUT_PATH "../../data/pics"
+#define INPUT_PATH "../../data/pics_bin"
 #define OUTPUT_PATH "../../output/pics"
 
 frame set_frame(char* path);
@@ -19,7 +19,7 @@ int main(void){
     int frame_count = 0; // 画像の数
     while(file_list[frame_count]) frame_count++; // 画像の数を数える
 
-    void* args = console(); // 適用する処理を選択
+    // void* args = console(); // 適用する処理を選択
 
     // 各画像を処理
     for (int i = 0; i < frame_count; i++){ // frame_count
@@ -40,9 +40,9 @@ int main(void){
 
         // f = affine(f, a, b, c, d, e, f2); // アフィン変換 a,b,c,d,e,f
 
-        // void* args = console(); // 適用する操作と引数をコンソールで入力させる
 
-        f = process(f, args);
+        // f = process(f, args);
+        f = labeling_frame(f);
 
         output_frame(file_list[i], f);
     }

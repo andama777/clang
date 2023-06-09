@@ -53,10 +53,10 @@ RM = /usr/bin/cmake -E rm -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /mnt/c/Users/mao0202/Documents/GitHub/clang/projects/pattern
+CMAKE_SOURCE_DIR = /mnt/c/Users/kanda.mao.18/Documents/GitHub/clang/projects/pattern
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /mnt/c/Users/mao0202/Documents/GitHub/clang/projects/pattern/build
+CMAKE_BINARY_DIR = /mnt/c/Users/kanda.mao.18/Documents/GitHub/clang/projects/pattern/build
 
 # Include any dependencies generated for this target.
 include CMakeFiles/process.dir/depend.make
@@ -72,16 +72,16 @@ include CMakeFiles/process.dir/flags.make
 CMakeFiles/process.dir/lib/Process.c.o: CMakeFiles/process.dir/flags.make
 CMakeFiles/process.dir/lib/Process.c.o: ../lib/Process.c
 CMakeFiles/process.dir/lib/Process.c.o: CMakeFiles/process.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/mnt/c/Users/mao0202/Documents/GitHub/clang/projects/pattern/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building C object CMakeFiles/process.dir/lib/Process.c.o"
-	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/process.dir/lib/Process.c.o -MF CMakeFiles/process.dir/lib/Process.c.o.d -o CMakeFiles/process.dir/lib/Process.c.o -c /mnt/c/Users/mao0202/Documents/GitHub/clang/projects/pattern/lib/Process.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/mnt/c/Users/kanda.mao.18/Documents/GitHub/clang/projects/pattern/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building C object CMakeFiles/process.dir/lib/Process.c.o"
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/process.dir/lib/Process.c.o -MF CMakeFiles/process.dir/lib/Process.c.o.d -o CMakeFiles/process.dir/lib/Process.c.o -c /mnt/c/Users/kanda.mao.18/Documents/GitHub/clang/projects/pattern/lib/Process.c
 
 CMakeFiles/process.dir/lib/Process.c.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/process.dir/lib/Process.c.i"
-	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /mnt/c/Users/mao0202/Documents/GitHub/clang/projects/pattern/lib/Process.c > CMakeFiles/process.dir/lib/Process.c.i
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /mnt/c/Users/kanda.mao.18/Documents/GitHub/clang/projects/pattern/lib/Process.c > CMakeFiles/process.dir/lib/Process.c.i
 
 CMakeFiles/process.dir/lib/Process.c.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/process.dir/lib/Process.c.s"
-	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /mnt/c/Users/mao0202/Documents/GitHub/clang/projects/pattern/lib/Process.c -o CMakeFiles/process.dir/lib/Process.c.s
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /mnt/c/Users/kanda.mao.18/Documents/GitHub/clang/projects/pattern/lib/Process.c -o CMakeFiles/process.dir/lib/Process.c.s
 
 # Object files for target process
 process_OBJECTS = \
@@ -93,7 +93,7 @@ process_EXTERNAL_OBJECTS =
 libprocess.a: CMakeFiles/process.dir/lib/Process.c.o
 libprocess.a: CMakeFiles/process.dir/build.make
 libprocess.a: CMakeFiles/process.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/mnt/c/Users/mao0202/Documents/GitHub/clang/projects/pattern/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Linking C static library libprocess.a"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/mnt/c/Users/kanda.mao.18/Documents/GitHub/clang/projects/pattern/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Linking C static library libprocess.a"
 	$(CMAKE_COMMAND) -P CMakeFiles/process.dir/cmake_clean_target.cmake
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/process.dir/link.txt --verbose=$(VERBOSE)
 
@@ -106,6 +106,6 @@ CMakeFiles/process.dir/clean:
 .PHONY : CMakeFiles/process.dir/clean
 
 CMakeFiles/process.dir/depend:
-	cd /mnt/c/Users/mao0202/Documents/GitHub/clang/projects/pattern/build && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /mnt/c/Users/mao0202/Documents/GitHub/clang/projects/pattern /mnt/c/Users/mao0202/Documents/GitHub/clang/projects/pattern /mnt/c/Users/mao0202/Documents/GitHub/clang/projects/pattern/build /mnt/c/Users/mao0202/Documents/GitHub/clang/projects/pattern/build /mnt/c/Users/mao0202/Documents/GitHub/clang/projects/pattern/build/CMakeFiles/process.dir/DependInfo.cmake --color=$(COLOR)
+	cd /mnt/c/Users/kanda.mao.18/Documents/GitHub/clang/projects/pattern/build && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /mnt/c/Users/kanda.mao.18/Documents/GitHub/clang/projects/pattern /mnt/c/Users/kanda.mao.18/Documents/GitHub/clang/projects/pattern /mnt/c/Users/kanda.mao.18/Documents/GitHub/clang/projects/pattern/build /mnt/c/Users/kanda.mao.18/Documents/GitHub/clang/projects/pattern/build /mnt/c/Users/kanda.mao.18/Documents/GitHub/clang/projects/pattern/build/CMakeFiles/process.dir/DependInfo.cmake --color=$(COLOR)
 .PHONY : CMakeFiles/process.dir/depend
 

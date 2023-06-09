@@ -1,7 +1,7 @@
 CMakeFiles/interface.dir/lib/Interface.c.o: \
- /mnt/c/Users/mao0202/Documents/GitHub/clang/projects/pattern/lib/Interface.c \
+ /mnt/c/Users/kanda.mao.18/Documents/GitHub/clang/projects/pattern/lib/Interface.c \
  /usr/include/stdc-predef.h \
- /mnt/c/Users/mao0202/Documents/GitHub/clang/projects/pattern/lib/Interface.h \
+ /mnt/c/Users/kanda.mao.18/Documents/GitHub/clang/projects/pattern/lib/Interface.h \
  /usr/include/stdio.h \
  /usr/include/x86_64-linux-gnu/bits/libc-header-start.h \
  /usr/include/features.h /usr/include/features-time64.h \
@@ -61,4 +61,4 @@ CMakeFiles/interface.dir/lib/Interface.c.o: \
  /usr/include/x86_64-linux-gnu/bits/types/locale_t.h \
  /usr/include/x86_64-linux-gnu/bits/types/__locale_t.h \
  /usr/include/strings.h \
- /mnt/c/Users/mao0202/Documents/GitHub/clang/projects/pattern/lib/Process.h
+ /mnt/c/Users/kanda.mao.18/Documents/GitHub/clang/projects/pattern/lib/Process.h

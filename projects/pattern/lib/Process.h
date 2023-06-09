@@ -16,6 +16,8 @@ typedef struct {
 
 frame init_frame(char magic[3], int width, int height, int max);
 frame process(frame f, void* args);
+void labeling(int i, int j, int label, frame f);
+frame labeling_frame(frame f);
 frame discriminant_analysis(frame f);
 frame binarization(frame f, int threshold);
 frame rotate(frame f, int axis_x, int axis_y, int rad);

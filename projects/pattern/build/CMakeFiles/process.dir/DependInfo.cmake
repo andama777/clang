@@ -8,7 +8,7 @@ set(CMAKE_DEPENDS_LANGUAGES
 
 # The set of dependency files which are needed:
 set(CMAKE_DEPENDS_DEPENDENCY_FILES
-  "/mnt/c/Users/mao0202/Documents/GitHub/clang/projects/pattern/lib/Process.c" "CMakeFiles/process.dir/lib/Process.c.o" "gcc" "CMakeFiles/process.dir/lib/Process.c.o.d"
+  "/mnt/c/Users/kanda.mao.18/Documents/GitHub/clang/projects/pattern/lib/Process.c" "CMakeFiles/process.dir/lib/Process.c.o" "gcc" "CMakeFiles/process.dir/lib/Process.c.o.d"
   )
 
 # Targets to which this target links.

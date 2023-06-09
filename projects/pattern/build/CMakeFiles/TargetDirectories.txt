@@ -1,5 +1,5 @@
-/mnt/c/Users/mao0202/Documents/GitHub/clang/projects/pattern/build/CMakeFiles/process.dir
-/mnt/c/Users/mao0202/Documents/GitHub/clang/projects/pattern/build/CMakeFiles/interface.dir
-/mnt/c/Users/mao0202/Documents/GitHub/clang/projects/pattern/build/CMakeFiles/pattern.dir
-/mnt/c/Users/mao0202/Documents/GitHub/clang/projects/pattern/build/CMakeFiles/edit_cache.dir
-/mnt/c/Users/mao0202/Documents/GitHub/clang/projects/pattern/build/CMakeFiles/rebuild_cache.dir
+/mnt/c/Users/kanda.mao.18/Documents/GitHub/clang/projects/pattern/build/CMakeFiles/process.dir
+/mnt/c/Users/kanda.mao.18/Documents/GitHub/clang/projects/pattern/build/CMakeFiles/interface.dir
+/mnt/c/Users/kanda.mao.18/Documents/GitHub/clang/projects/pattern/build/CMakeFiles/pattern.dir
+/mnt/c/Users/kanda.mao.18/Documents/GitHub/clang/projects/pattern/build/CMakeFiles/edit_cache.dir
+/mnt/c/Users/kanda.mao.18/Documents/GitHub/clang/projects/pattern/build/CMakeFiles/rebuild_cache.dir

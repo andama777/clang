@@ -39,53 +39,28 @@ frame process(frame f, void* args){
     }
 }
 
-// 画像を綺麗に二値化するような閾値を求める
-// frame discriminant_analysis(frame f){
-//     int k = 0; // 濃度
-//     int pix_num = f.width * f.height; // 総画素数
-//     // 初期化
-//     int*n = calloc(f.max, sizeof(int) * f.max); // 濃度がiの画素数
-//     float*p = calloc(f.max, sizeof(float) * f.max); // 濃度が0~kの生起確率
-//     float*m = calloc(f.max, sizeof(float) * f.max); // 0~kまでの平均濃度
-//     // float*v = (float *)malloc(sizeof(float) * f.max); // 閾値kの時のクラス間分散
+void labeling(int i, int j, int label, frame f){
+    if (i < 0 || i >= f.height || j < 0 || j >= f.width) return;
+    if (f.image[i][j] != f.max) return;
+    f.image[i][j] = label;
+    if (f.image[i+1][j] == f.max) labeling(i+1, j, label, f);
+    if (f.image[i-1][j] == f.max) labeling(i-1, j, label, f);
+    if (f.image[i][j+1] == f.max) labeling(i, j+1, label, f);
+    if (f.image[i][j-1] == f.max) labeling(i, j-1, label, f);
+}
 
-//     // 濃度ごとの画素数を求める
-//     for (int i = 0; i < f.height; i++){ 
-//         for (int j = 0; j < f.width; j++){
-//             n[f.image[i][j]]++;
-//         }
-//     }
-
-//     // 濃度が0~kの生起確率を求める
-//     p[0] = (float)n[0] / (f.width * f.height);
-//     for (k = 1; k <= f.max; k++){
-//         p[k] = p[k-1] + (float)n[k] / pix_num;
-//     }
-
-//     // 濃度0~kまでの平均濃度を求める
-//     m[0] = 0;
-//     for (k = 1; k <= f.max; k++){
-//         m[k] = m[k-1] + (float)k * n[k] / pix_num;
-//         // printf("k = %d, m = %f\n", k, m[k]);
-//     }
-
-//     // 閾値kの時のクラス間分散を求め、最大の閾値を求める
-//     int threshold = 0; // 閾値
-//     double tmp_var, var = 0; // クラス間分散
-//     float mT = m[f.max]; // 画像全体の平均濃度
-//     for (k = 0; k <= f.max; k++){
-//         var = pow(mT * p[k] - m[k], 2) / (p[k] * (1 - p[k]));
-//         // printf("k = %d, var = %f\n", k, var);
-//         if (var > tmp_var){
-//             tmp_var = var;
-//             threshold = k;
-//         }
-//     }
-
-//     printf("閾値: %d\n", threshold);
-
-//     return binarization(f, threshold);
-// }
+frame labeling_frame(frame f){
+    int label = 1;
+    for (int i = 0; i < f.height; i++){
+        for (int j = 0; j < f.width; j++){
+            if (f.image[i][j] == f.max){
+                labeling(i, j, label, f);
+                label++;
+            }
+        }
+    }
+    return f;
+}
 
 // 画像を綺麗に二値化するような閾値を求める
 frame discriminant_analysis(frame f){
