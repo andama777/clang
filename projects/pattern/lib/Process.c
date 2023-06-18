@@ -1,5 +1,7 @@
 #include "Process.h"
 
+label_info max_label_info;
+
 frame init_frame(char magic[3], int width, int height, int max){
     frame f;
     strcpy(f.magic, magic);
@@ -50,6 +52,7 @@ void labeling(int i, int j, int label, frame f){
 }
 
 frame labeling_frame(frame f){
+    // 領域にラベルをつける
     int label = 1;
     for (int i = 0; i < f.height; i++){
         for (int j = 0; j < f.width; j++){
@@ -59,7 +62,42 @@ frame labeling_frame(frame f){
             }
         }
     }
+
+    // ラベリングした領域の情報を格納する
+    label_info* info = calloc(label, sizeof(label_info));
+    for (int i = 0; i < f.height; i++){
+        for (int j = 0; j < f.width; j++){
+            if (f.image[i][j] != 0){
+                info[f.image[i][j]].label_number = f.image[i][j];
+                info[f.image[i][j]].area++;
+                info[f.image[i][j]].xwt += j;
+                info[f.image[i][j]].ywt += i;
+            }
+        }
+    }
+
+    // ラベリングした領域の情報を出力 また、一番大きい領域のラベルを返す
+    printf("label number area xwt ywt\n");
+    int max_label = 0;
+    for (int i = 0; i < label; i++){
+        if (info[i].area == 0) continue;
+        info[i].xwt /= info[i].area;
+        info[i].ywt /= info[i].area;
+        printf("%d %d %d %d\n", info[i].label_number, info[i].area, info[i].xwt, info[i].ywt);
+        if (info[i].area > info[max_label].area) max_label = i;
+    }
+
+    // 一番大きい領域のラベル情報
+    max_label_info = info[max_label];
+
+    //一番大きい領域のラベルを表示
+    printf("max label: %d\n", max_label);
+
     return f;
+}
+
+void print_area_info(frame f){
+    frame labeled_frame = labeling_frame(f);
 }
 
 // 画像を綺麗に二値化するような閾値を求める
@@ -270,4 +308,39 @@ frame median_filter(frame f, int bsize){
     }
 
     return f;
+}
+
+frame face_area_extract(frame f){
+    // deep copy
+    frame bin = init_frame(f.magic, f.width, f.height, f.max);
+    for (int i = 0; i < f.height; i++){
+        for (int j = 0; j < f.width; j++){
+            bin.image[i][j] = f.image[i][j];
+        }
+    }
+    bin = discriminant_analysis(bin); // 画像を二値化
+    
+    frame labeled = labeling_frame(bin); // ラベリング
+    label_info max_label = max_label_info; // 一番大きい領域のラベル情報
+
+    // 一番大きい領域のみを抽出 マスクを作成
+    for (int i = 0; i < labeled.height; i++){
+        for (int j = 0; j < labeled.width; j++){
+            if (labeled.image[i][j] != max_label.label_number){
+                labeled.image[i][j] = 0;
+            } else {
+                labeled.image[i][j] = 1;
+            }
+        }
+    }
+
+    frame result = init_frame(f.magic, f.width, f.height, f.max);
+    // オリジナルの画像にマスクをかける
+    for (int i = 0; i < f.height; i++){
+        for (int j = 0; j < f.width; j++){
+            result.image[i][j] = f.image[i][j] * labeled.image[i][j];
+        }
+    }
+
+    return result;
 }

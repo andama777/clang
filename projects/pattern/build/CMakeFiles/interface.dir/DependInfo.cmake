@@ -8,7 +8,7 @@ set(CMAKE_DEPENDS_LANGUAGES
 
 # The set of dependency files which are needed:
 set(CMAKE_DEPENDS_DEPENDENCY_FILES
-  "/mnt/c/Users/kanda.mao.18/Documents/GitHub/clang/projects/pattern/lib/Interface.c" "CMakeFiles/interface.dir/lib/Interface.c.o" "gcc" "CMakeFiles/interface.dir/lib/Interface.c.o.d"
+  "/mnt/c/Users/mao0202/Documents/GitHub/clang/projects/pattern/lib/Interface.c" "CMakeFiles/interface.dir/lib/Interface.c.o" "gcc" "CMakeFiles/interface.dir/lib/Interface.c.o.d"
   )
 
 # Targets to which this target links.

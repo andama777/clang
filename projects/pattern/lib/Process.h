@@ -14,8 +14,15 @@ typedef struct {
     int* args;
 } frame;
 
+typedef struct {
+    int label_number;
+    int area;
+    int xwt, ywt; // 重心
+}label_info;
+
 frame init_frame(char magic[3], int width, int height, int max);
 frame process(frame f, void* args);
+void print_area_info(frame f);
 void labeling(int i, int j, int label, frame f);
 frame labeling_frame(frame f);
 frame discriminant_analysis(frame f);
@@ -26,6 +33,7 @@ frame moving_average(frame f);
 frame median_filter(frame f, int bsize);
 frame scale(frame f, float width_scale, float height_scale);
 frame affine(frame f, double a, double b, double c, double d, double e, double f2);
+frame face_area_extract(frame f);
 
 typedef struct {
     char name[30];

@@ -5,7 +5,8 @@
 #include "Interface.h"
 #include "Process.h"
 
-#define INPUT_PATH "../../data/pics_bin"
+// #define INPUT_PATH "../../data/pics"
+#define INPUT_PATH "../../data/pics_face"
 #define OUTPUT_PATH "../../output/pics"
 
 frame set_frame(char* path);
@@ -41,8 +42,10 @@ int main(void){
         // f = affine(f, a, b, c, d, e, f2); // アフィン変換 a,b,c,d,e,f
 
 
-        // f = process(f, args);
-        f = labeling_frame(f);
+        //f = process(f, args);
+        //f = labeling_frame(f);
+        // f = discriminant_analysis(f);
+        f = face_area_extract(f);
 
         output_frame(file_list[i], f);
     }

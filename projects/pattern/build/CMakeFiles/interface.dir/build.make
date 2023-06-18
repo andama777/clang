@@ -53,10 +53,10 @@ RM = /usr/bin/cmake -E rm -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /mnt/c/Users/kanda.mao.18/Documents/GitHub/clang/projects/pattern
+CMAKE_SOURCE_DIR = /mnt/c/Users/mao0202/Documents/GitHub/clang/projects/pattern
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /mnt/c/Users/kanda.mao.18/Documents/GitHub/clang/projects/pattern/build
+CMAKE_BINARY_DIR = /mnt/c/Users/mao0202/Documents/GitHub/clang/projects/pattern/build
 
 # Include any dependencies generated for this target.
 include CMakeFiles/interface.dir/depend.make
@@ -72,16 +72,16 @@ include CMakeFiles/interface.dir/flags.make
 CMakeFiles/interface.dir/lib/Interface.c.o: CMakeFiles/interface.dir/flags.make
 CMakeFiles/interface.dir/lib/Interface.c.o: ../lib/Interface.c
 CMakeFiles/interface.dir/lib/Interface.c.o: CMakeFiles/interface.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/mnt/c/Users/kanda.mao.18/Documents/GitHub/clang/projects/pattern/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building C object CMakeFiles/interface.dir/lib/Interface.c.o"
-	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/interface.dir/lib/Interface.c.o -MF CMakeFiles/interface.dir/lib/Interface.c.o.d -o CMakeFiles/interface.dir/lib/Interface.c.o -c /mnt/c/Users/kanda.mao.18/Documents/GitHub/clang/projects/pattern/lib/Interface.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/mnt/c/Users/mao0202/Documents/GitHub/clang/projects/pattern/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building C object CMakeFiles/interface.dir/lib/Interface.c.o"
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/interface.dir/lib/Interface.c.o -MF CMakeFiles/interface.dir/lib/Interface.c.o.d -o CMakeFiles/interface.dir/lib/Interface.c.o -c /mnt/c/Users/mao0202/Documents/GitHub/clang/projects/pattern/lib/Interface.c
 
 CMakeFiles/interface.dir/lib/Interface.c.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/interface.dir/lib/Interface.c.i"
-	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /mnt/c/Users/kanda.mao.18/Documents/GitHub/clang/projects/pattern/lib/Interface.c > CMakeFiles/interface.dir/lib/Interface.c.i
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /mnt/c/Users/mao0202/Documents/GitHub/clang/projects/pattern/lib/Interface.c > CMakeFiles/interface.dir/lib/Interface.c.i
 
 CMakeFiles/interface.dir/lib/Interface.c.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/interface.dir/lib/Interface.c.s"
-	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /mnt/c/Users/kanda.mao.18/Documents/GitHub/clang/projects/pattern/lib/Interface.c -o CMakeFiles/interface.dir/lib/Interface.c.s
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /mnt/c/Users/mao0202/Documents/GitHub/clang/projects/pattern/lib/Interface.c -o CMakeFiles/interface.dir/lib/Interface.c.s
 
 # Object files for target interface
 interface_OBJECTS = \
@@ -93,7 +93,7 @@ interface_EXTERNAL_OBJECTS =
 libinterface.a: CMakeFiles/interface.dir/lib/Interface.c.o
 libinterface.a: CMakeFiles/interface.dir/build.make
 libinterface.a: CMakeFiles/interface.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/mnt/c/Users/kanda.mao.18/Documents/GitHub/clang/projects/pattern/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Linking C static library libinterface.a"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/mnt/c/Users/mao0202/Documents/GitHub/clang/projects/pattern/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Linking C static library libinterface.a"
 	$(CMAKE_COMMAND) -P CMakeFiles/interface.dir/cmake_clean_target.cmake
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/interface.dir/link.txt --verbose=$(VERBOSE)
 
@@ -106,6 +106,6 @@ CMakeFiles/interface.dir/clean:
 .PHONY : CMakeFiles/interface.dir/clean
 
 CMakeFiles/interface.dir/depend:
-	cd /mnt/c/Users/kanda.mao.18/Documents/GitHub/clang/projects/pattern/build && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /mnt/c/Users/kanda.mao.18/Documents/GitHub/clang/projects/pattern /mnt/c/Users/kanda.mao.18/Documents/GitHub/clang/projects/pattern /mnt/c/Users/kanda.mao.18/Documents/GitHub/clang/projects/pattern/build /mnt/c/Users/kanda.mao.18/Documents/GitHub/clang/projects/pattern/build /mnt/c/Users/kanda.mao.18/Documents/GitHub/clang/projects/pattern/build/CMakeFiles/interface.dir/DependInfo.cmake --color=$(COLOR)
+	cd /mnt/c/Users/mao0202/Documents/GitHub/clang/projects/pattern/build && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /mnt/c/Users/mao0202/Documents/GitHub/clang/projects/pattern /mnt/c/Users/mao0202/Documents/GitHub/clang/projects/pattern /mnt/c/Users/mao0202/Documents/GitHub/clang/projects/pattern/build /mnt/c/Users/mao0202/Documents/GitHub/clang/projects/pattern/build /mnt/c/Users/mao0202/Documents/GitHub/clang/projects/pattern/build/CMakeFiles/interface.dir/DependInfo.cmake --color=$(COLOR)
 .PHONY : CMakeFiles/interface.dir/depend
 
