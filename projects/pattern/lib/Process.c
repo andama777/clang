@@ -344,3 +344,88 @@ frame face_area_extract(frame f){
 
     return result;
 }
+
+//2枚の画像を読み込み、距離を用いてテンプレートマッチングを行なう。
+// 出力は、マッチング位置を表示した画像ファイルと、距離の最大値とすること
+frame template_matching_distance(frame t, frame f){
+    int minD = INT_MAX;
+    int rx, ry; // 最適座標 result_x result_y
+
+    for (int y = 0; y <= f.height - t.height; y++){
+        for (int x = 0; x <= f.width - t.width; x++){
+
+            int D = 0;
+            for (int i = 0; i < t.height; i++){ // テンプレートとの距離を計算する
+                for (int j = 0; j < t.width; j++){
+                    D += abs(f.image[y+i][x+j] - t.image[i][j]);
+                    if (D > minD) break; // 最小値を超えたら計算を打ち切る
+                }
+            }
+
+            if (D < minD){ // 最小値と最適座標を更新する
+                minD = D;
+                rx = x;
+                ry = y;
+            }
+        }
+    }
+
+    // テンプレートとの距離が最小となる座標を表示する
+    printf("x: %d, y: %d\n", rx, ry);
+    printf("minD: %d\n", minD);
+
+    // マッチング位置をオリジナルの画像に白枠で表示する
+    for (int i = rx; i < rx + t.width; i++){
+        f.image[ry][i] = f.image[ry + t.height][i] = f.max;
+    }
+    for (int i = ry; i < ry + t.height; i++){
+        f.image[i][rx] = f.image[i][rx + t.width] = f.max;
+    }
+
+    return f;
+
+}
+
+//2枚の画像を読み込み、類似度を用いてテンプレートマッチングを行なう。
+// 出力は、マッチング位置を表示した画像ファイルと、類似度の最大値とすること
+frame template_matching_similarity(frame t, frame f){
+    double maxS = INT_MIN;
+    int rx, ry; // 最適座標 result_x result_y
+
+    for (int y = 0; y <= f.height - t.height; y++){ // テンプレートとの類似度を計算する
+        for (int x = 0; x <= f.width - t.width; x++){
+
+            double IT = 0, II = 0, TT = 0;
+            for (int i = 0; i < t.height; i++){
+                for (int j = 0; j < t.width; j++){
+                    IT += f.image[y+i][x+j] * t.image[i][j];
+                    II += f.image[y+i][x+j] * f.image[y+i][x+j];
+                    TT += t.image[i][j] * t.image[i][j];
+                }
+            }
+
+            double S = IT / (sqrt(II) * sqrt(TT));
+
+            if (S > maxS){ // 最大値と最適座標を更新する
+                maxS = S;
+                rx = x;
+                ry = y;
+            }
+        }
+    }
+
+    // テンプレートとの類似度が最大となる座標を表示する
+    printf("x: %d, y: %d\n", rx, ry);
+    printf("maxS: %f\n", maxS);
+
+    // マッチング位置をオリジナルの画像に白枠で表示する
+    for (int i = rx; i < rx + t.width; i++){
+        f.image[ry][i] = f.image[ry + t.height][i] = f.max;
+    }
+    for (int i = ry; i < ry + t.height; i++){
+        f.image[i][rx] = f.image[i][rx + t.width] = f.max;
+    }
+
+    return f;
+
+}

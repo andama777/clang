@@ -134,8 +134,8 @@ CMakeFiles/interface.dir/clean:
 # Target rules for target CMakeFiles/pattern.dir
 
 # All Build rule for target.
-CMakeFiles/pattern.dir/all: CMakeFiles/interface.dir/all
 CMakeFiles/pattern.dir/all: CMakeFiles/process.dir/all
+CMakeFiles/pattern.dir/all: CMakeFiles/interface.dir/all
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/pattern.dir/build.make CMakeFiles/pattern.dir/depend
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/pattern.dir/build.make CMakeFiles/pattern.dir/build
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/mnt/c/Users/mao0202/Documents/GitHub/clang/projects/pattern/build/CMakeFiles --progress-num=3,4 "Built target pattern"

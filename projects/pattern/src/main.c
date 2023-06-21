@@ -5,8 +5,8 @@
 #include "Interface.h"
 #include "Process.h"
 
-// #define INPUT_PATH "../../data/pics"
-#define INPUT_PATH "../../data/pics_face"
+#define INPUT_PATH "../../data/pics"
+// #define INPUT_PATH "../../data/pics_face"
 #define OUTPUT_PATH "../../output/pics"
 
 frame set_frame(char* path);
@@ -23,32 +23,45 @@ int main(void){
     // void* args = console(); // 適用する処理を選択
 
     // 各画像を処理
-    for (int i = 0; i < frame_count; i++){ // frame_count
+    // for (int i = 0; i < frame_count; i++){ // frame_count
 
-        frame f = set_frame(file_list[i]);
-        printf("--------------------------\n");
-        printf("%s\n", file_list[i]);
+    //     frame f = set_frame(file_list[i]);
+    //     printf("--------------------------\n");
+    //     printf("%s\n", file_list[i]);
 
-        // int a,b,c,d,e,f2;
-        // int affine_testdata[6] = {1.0, 0.0, 100.0, 0.0, 1.0, 100.0}; // 拡大縮小１
+    //     // int a,b,c,d,e,f2;
+    //     // int affine_testdata[6] = {1.0, 0.0, 100.0, 0.0, 1.0, 100.0}; // 拡大縮小１
 
-        // a = affine_testdata[0];
-        // b = affine_testdata[1];
-        // c = affine_testdata[2];
-        // d = affine_testdata[3];
-        // e = affine_testdata[4];
-        // f2 = affine_testdata[5];
+    //     // a = affine_testdata[0];
+    //     // b = affine_testdata[1];
+    //     // c = affine_testdata[2];
+    //     // d = affine_testdata[3];
+    //     // e = affine_testdata[4];
+    //     // f2 = affine_testdata[5];
 
-        // f = affine(f, a, b, c, d, e, f2); // アフィン変換 a,b,c,d,e,f
+    //     // f = affine(f, a, b, c, d, e, f2); // アフィン変換 a,b,c,d,e,f
 
 
-        //f = process(f, args);
-        //f = labeling_frame(f);
-        // f = discriminant_analysis(f);
-        f = face_area_extract(f);
+    //     //f = process(f, args);
+    //     //f = labeling_frame(f);
+    //     // f = discriminant_analysis(f);
+    //     f = face_area_extract(f);
 
-        output_frame(file_list[i], f);
-    }
+    //     output_frame(file_list[i], f);
+    // }
+
+    // matching pattern
+    char template_path[100];
+    char f_path[100];
+    sprintf(template_path, "%s/%s", INPUT_PATH, "carte.pgm");
+    sprintf(f_path, "%s/%s", INPUT_PATH, "car2.pgm");
+    frame template = set_frame(template_path);
+    frame f = set_frame(f_path);
+
+    frame result = template_matching_distance(template, f);
+    //frame result = template_matching_similarity(template, f);
+
+    output_frame("result.pgm", result);
 
     return 0;
 };

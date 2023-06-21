@@ -3,6 +3,7 @@
 #include <stdlib.h>
 #include <string.h>
 #include <math.h>
+#include <limits.h>
 
 #include "Interface.h"
 
@@ -34,6 +35,8 @@ frame median_filter(frame f, int bsize);
 frame scale(frame f, float width_scale, float height_scale);
 frame affine(frame f, double a, double b, double c, double d, double e, double f2);
 frame face_area_extract(frame f);
+frame template_matching_distance(frame t, frame f);
+frame template_matching_similarity(frame t, frame f);
 
 typedef struct {
     char name[30];
