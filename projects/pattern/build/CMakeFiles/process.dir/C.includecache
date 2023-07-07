@@ -1,0 +1,40 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/mnt/c/Users/kanda.mao.18/Documents/GitHub/clang/projects/pattern/lib/Interface.h
+stdio.h
+-
+stdlib.h
+-
+stdbool.h
+-
+math.h
+-
+string.h
+-
+Process.h
+/mnt/c/Users/kanda.mao.18/Documents/GitHub/clang/projects/pattern/lib/Process.h
+
+/mnt/c/Users/kanda.mao.18/Documents/GitHub/clang/projects/pattern/lib/Process.c
+Process.h
+/mnt/c/Users/kanda.mao.18/Documents/GitHub/clang/projects/pattern/lib/Process.h
+
+/mnt/c/Users/kanda.mao.18/Documents/GitHub/clang/projects/pattern/lib/Process.h
+stdio.h
+-
+stdlib.h
+-
+string.h
+-
+math.h
+-
+limits.h
+-
+Interface.h
+/mnt/c/Users/kanda.mao.18/Documents/GitHub/clang/projects/pattern/lib/Interface.h
+

@@ -21,6 +21,13 @@ typedef struct {
     int xwt, ywt; // 重心
 }label_info;
 
+typedef struct {
+    int center;
+    int old_center;
+    int claster_num; // クラスタ番号
+    int area_sum; // 面積の合計
+}claster_info;
+
 frame init_frame(char magic[3], int width, int height, int max);
 frame process(frame f, void* args);
 void print_area_info(frame f);
@@ -37,9 +44,10 @@ frame affine(frame f, double a, double b, double c, double d, double e, double f
 frame face_area_extract(frame f);
 frame template_matching_distance(frame t, frame f);
 frame template_matching_similarity(frame t, frame f);
+frame invert_frame(frame f);
+void k_means_classify(frame f, int k);
 
 typedef struct {
     char name[30];
     int args_num;
 } function_info;
-

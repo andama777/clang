@@ -1,6 +1,5 @@
 file(REMOVE_RECURSE
   "CMakeFiles/interface.dir/lib/Interface.c.o"
-  "CMakeFiles/interface.dir/lib/Interface.c.o.d"
   "libinterface.a"
   "libinterface.pdb"
 )

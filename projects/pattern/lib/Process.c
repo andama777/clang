@@ -2,6 +2,10 @@
 
 label_info max_label_info;
 
+label_info* info;
+
+int label;
+
 frame init_frame(char magic[3], int width, int height, int max){
     frame f;
     strcpy(f.magic, magic);
@@ -53,7 +57,7 @@ void labeling(int i, int j, int label, frame f){
 
 frame labeling_frame(frame f){
     // 領域にラベルをつける
-    int label = 1;
+    label = 1;
     for (int i = 0; i < f.height; i++){
         for (int j = 0; j < f.width; j++){
             if (f.image[i][j] == f.max){
@@ -64,7 +68,7 @@ frame labeling_frame(frame f){
     }
 
     // ラベリングした領域の情報を格納する
-    label_info* info = calloc(label, sizeof(label_info));
+    info = calloc(label, sizeof(label_info));
     for (int i = 0; i < f.height; i++){
         for (int j = 0; j < f.width; j++){
             if (f.image[i][j] != 0){
@@ -398,8 +402,10 @@ frame template_matching_similarity(frame t, frame f){
             double IT = 0, II = 0, TT = 0;
             for (int i = 0; i < t.height; i++){
                 for (int j = 0; j < t.width; j++){
-                    IT += f.image[y+i][x+j] * t.image[i][j];
-                    II += f.image[y+i][x+j] * f.image[y+i][x+j];
+                    int yplusi = y + i;
+                    int xplusj = x + j;
+                    IT += f.image[yplusi][xplusj] * t.image[i][j];
+                    II += f.image[yplusi][xplusj] * f.image[yplusi][xplusj];
                     TT += t.image[i][j] * t.image[i][j];
                 }
             }
@@ -428,4 +434,73 @@ frame template_matching_similarity(frame t, frame f){
 
     return f;
 
+}
+
+frame invert_frame(frame f){
+    for (int i = 0; i < f.height; i++){
+        for (int j = 0; j < f.width; j++){
+            f.image[i][j] = f.max - f.image[i][j];
+        }
+    }
+    return f;
+}
+
+void k_means_classify(frame f, int k){
+    frame neg = invert_frame(f);
+    frame bin = discriminant_analysis(neg);
+    frame labeled = labeling_frame(bin);
+
+    // ラベル情報 グローバル変数渡し
+    label_info* patterns = info;
+
+    // ラベル数 グローバル変数渡し
+    label -= 1; // 調整
+    int pattern = label;
+    printf("pattern number : %d\n", pattern);
+
+    // クラスタ情報の宣言
+    claster_info* clasters = (claster_info*)malloc(sizeof(claster_info) * k);
+
+    for (int i = 0; i < k; i++){ // クラスタごとに処理を行う
+        clasters[i].center = patterns[i].area;
+        clasters[i].claster_num = i;
+    }
+
+    int center_error = 0;
+    do {
+        center_error = 0;
+        for(int c = 0; c < k; c++){ // クラスタの初期化
+            clasters[c].claster_num = 0;
+            clasters[c].area_sum = 0;
+        }
+
+        for (int p = 0; p < pattern; p++){ // 各パターンに対して処理を行う
+            int minD = INT_MAX;
+            for (int c = 0; c < k; c++){ // 各クラスタについて
+                int D = 0;
+                for (int j = 0; j < patterns[p].area; j++){ // クラスタの中心と、各パターンの差を足しあげる
+                    D += abs(clasters[c].center - patterns[p].area);
+                }
+                if (D < minD){ // 最も近いクラスタを探す
+                    minD = D;
+                    patterns[p].label_number = c; // 最も近いクラスタのラベル番号を設定する
+                }
+            }
+            clasters[patterns[p].label_number].claster_num++; // クラスタのパターン数を1増やす
+            clasters[patterns[p].label_number].area_sum += patterns[p].area; //クラスタの面積合計を更新
+        }
+
+        for (int i = 0; i < k; i++){ // クラスタの中心を更新する
+            clasters[i].old_center = clasters[i].center;
+            clasters[i].center = clasters[i].area_sum / clasters[i].claster_num;
+            center_error += abs(clasters[i].center - clasters[i].old_center);
+        }
+    } while (center_error > 0); // クラスタの中心が変化しなくなるまで繰り返す
+
+    // 結果の確認
+    for (int i = 0; i < k; i++){
+        printf("クラスタ%dの中心 : %d\n", i, clasters[i].center);
+        printf("クラスタ%dの合計面積 : %d\n", i, clasters[i].area_sum);
+        printf("クラスタ%dの数 : %d\n", i, clasters[i].claster_num);
+    }
 }

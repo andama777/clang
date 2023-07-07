@@ -41,7 +41,6 @@ int main(void){
 
     //     // f = affine(f, a, b, c, d, e, f2); // アフィン変換 a,b,c,d,e,f
 
-
     //     //f = process(f, args);
     //     //f = labeling_frame(f);
     //     // f = discriminant_analysis(f);
@@ -53,16 +52,14 @@ int main(void){
     // matching pattern
     char template_path[100];
     char f_path[100];
-    sprintf(template_path, "%s/%s", INPUT_PATH, "carte.pgm");
-    sprintf(f_path, "%s/%s", INPUT_PATH, "car2.pgm");
-    frame template = set_frame(template_path);
+    sprintf(f_path, "%s/%s", INPUT_PATH, "fruits.pgm");
     frame f = set_frame(f_path);
 
-    frame result = template_matching_distance(template, f);
+    k_means_classify(f, 3);
+
     //frame result = template_matching_similarity(template, f);
 
-    output_frame("result.pgm", result);
-
+    // output_frame("result.pgm", result);
     return 0;
 };
 

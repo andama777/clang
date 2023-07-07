@@ -1,1 +1,1 @@
-/usr/bin/cc CMakeFiles/pattern.dir/src/main.c.o -o pattern   -L"/mnt/c/Users/mao0202/Documents/GitHub/clang/projects/pattern/\$./lib"  -Wl,-rpath,"/mnt/c/Users/mao0202/Documents/GitHub/clang/projects/pattern/\$./lib" libprocess.a -lm libinterface.a 
+/usr/bin/cc    CMakeFiles/pattern.dir/src/main.c.o  -o pattern   -L"/mnt/c/Users/kanda.mao.18/Documents/GitHub/clang/projects/pattern/\$./lib"  -Wl,-rpath,"/mnt/c/Users/kanda.mao.18/Documents/GitHub/clang/projects/pattern/\$./lib" libprocess.a -lm libinterface.a 

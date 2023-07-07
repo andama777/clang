@@ -1,20 +1,22 @@
-
-# Consider dependencies only in project.
-set(CMAKE_DEPENDS_IN_PROJECT_ONLY OFF)
-
 # The set of languages for which implicit dependencies are needed:
 set(CMAKE_DEPENDS_LANGUAGES
+  "C"
   )
+# The set of files for implicit dependencies of each language:
+set(CMAKE_DEPENDS_CHECK_C
+  "/mnt/c/Users/kanda.mao.18/Documents/GitHub/clang/projects/pattern/src/main.c" "/mnt/c/Users/kanda.mao.18/Documents/GitHub/clang/projects/pattern/build/CMakeFiles/pattern.dir/src/main.c.o"
+  )
+set(CMAKE_C_COMPILER_ID "GNU")
 
-# The set of dependency files which are needed:
-set(CMAKE_DEPENDS_DEPENDENCY_FILES
-  "/mnt/c/Users/mao0202/Documents/GitHub/clang/projects/pattern/src/main.c" "CMakeFiles/pattern.dir/src/main.c.o" "gcc" "CMakeFiles/pattern.dir/src/main.c.o.d"
+# The include file search paths:
+set(CMAKE_C_TARGET_INCLUDE_PATH
+  ".././lib"
   )
 
 # Targets to which this target links.
 set(CMAKE_TARGET_LINKED_INFO_FILES
-  "/mnt/c/Users/mao0202/Documents/GitHub/clang/projects/pattern/build/CMakeFiles/process.dir/DependInfo.cmake"
-  "/mnt/c/Users/mao0202/Documents/GitHub/clang/projects/pattern/build/CMakeFiles/interface.dir/DependInfo.cmake"
+  "/mnt/c/Users/kanda.mao.18/Documents/GitHub/clang/projects/pattern/build/CMakeFiles/process.dir/DependInfo.cmake"
+  "/mnt/c/Users/kanda.mao.18/Documents/GitHub/clang/projects/pattern/build/CMakeFiles/interface.dir/DependInfo.cmake"
   )
 
 # Fortran module output directory.

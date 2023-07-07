@@ -1,6 +1,5 @@
 file(REMOVE_RECURSE
   "CMakeFiles/process.dir/lib/Process.c.o"
-  "CMakeFiles/process.dir/lib/Process.c.o.d"
   "libprocess.a"
   "libprocess.pdb"
 )
